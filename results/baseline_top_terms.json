@@ -1,0 +1,82 @@
+{
+  "Cardiovascular / Pulmonary": [
+    "heart",
+    "heart rate",
+    "breath",
+    "pulmonary",
+    "chest",
+    "predicted",
+    "pneumonia",
+    "lung"
+  ],
+  "General Medicine": [
+    "negative",
+    "vomiting",
+    "clear",
+    "nausea",
+    "regular",
+    "throat",
+    "sounds",
+    "ears"
+  ],
+  "Neurology": [
+    "gait",
+    "mri",
+    "reflexes",
+    "strength",
+    "temporal",
+    "motor",
+    "brain",
+    "his"
+  ],
+  "Orthopedic": [
+    "pain",
+    "back pain",
+    "orange",
+    "east",
+    "knee",
+    "xyz",
+    "physical therapy",
+    "lumbar"
+  ],
+  "Psychiatry / Psychology": [
+    "axis",
+    "summary",
+    "psychiatric",
+    "depression",
+    "disorder",
+    "suicidal",
+    "discharge summary",
+    "mental"
+  ],
+  "Radiology": [
+    "there is",
+    "exam",
+    "images",
+    "impression",
+    "findings",
+    "are",
+    "contrast",
+    "unremarkable"
+  ],
+  "Surgery": [
+    "procedure",
+    "then",
+    "was then",
+    "was",
+    "anesthesia",
+    "placed",
+    "the procedure",
+    "removed"
+  ],
+  "Urology": [
+    "prostate",
+    "bladder",
+    "penis",
+    "the bladder",
+    "cystoscopy",
+    "urinary",
+    "the penis",
+    "urethra"
+  ]
+}

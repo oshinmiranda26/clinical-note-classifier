@@ -1,0 +1,7 @@
+{
+  "model": "tfidf_logreg",
+  "n_train": 1518,
+  "n_test": 380,
+  "accuracy": 0.8895,
+  "macro_f1": 0.8202
+}

@@ -1,0 +1,11 @@
+pandas
+scikit-learn
+matplotlib
+pytest
+# added later:
+# torch
+# transformers
+# peft
+# datasets
+# fastapi
+# uvicorn

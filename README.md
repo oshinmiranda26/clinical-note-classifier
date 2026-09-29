@@ -1,9 +1,9 @@
 # Clinical Note Classification: Classical ML vs. BERT vs. LoRA-Tuned LLM
 
-> One-sentence summary of what this project shows and the headline result (fill in at the end).
+> TF-IDF + logistic regression baseline reaches 0.82 macro-F1 across 8 specialties. BERT and LoRA-tuned LLM comparisons are next.
 
 ## Problem
-Why classifying clinical notes matters (routing, cohort identification, phenotyping) in 3-4 sentences.
+Much of the clinically important information in health records, such as symptoms, severity, and clinical reasoning, lives in free-text notes rather than structured EMR fields, and reviewing notes manually does not scale into production. Automatically classifying notes is a building block for real world applications like cohort identification (phenotyping), clinical trial screening, and document routing. This project uses medical specialty classification on public transcription data (e.g., Kaggle Dataset) to compare three approaches: (i) TF-IDF with logistic regression, (ii) a fine-tuned BERT-class model, and (iii) LoRA-tuned LLM, asking whether larger models deliver enough improvement to justify their cost. This pipeline can be designed to transfer to real RWE tasks, such as identifying depression from discharge summaries.
 
 ## Data
 - Source: MTSamples medical transcriptions (public). Later version: MIMIC-IV notes (credentialed access; not redistributed here).
@@ -16,13 +16,13 @@ Why classifying clinical notes matters (routing, cohort identification, phenotyp
 3. LLM: LoRA fine-tune of a small open LLM
 
 ## Results
-| Model | Macro-F1 | Accuracy | Training time | Notes |
-|---|---|---|---|---|
-| | TF-IDF + LR | 0.820 | 0.890 | under 1 min | strong baseline; weakest on Neurology and Cardio/Pulm |
-| BERT-class | | | | |
-| LoRA LLM | | | | |
+  | Model | Macro-F1 | Accuracy | Training time | Notes |
+  |---|---|---|---|---|
+  | TF-IDF + LR | 0.820 | 0.890 | under 1 min | Strong baseline; weakest on Neurology and Cardio/Pulm |
+  | BERT-class | | | | in progress |
+  | LoRA LLM | | | | in progress |
 
-Figure: confusion matrix of the best model.
+  ![Baseline confusion matrix](results/baseline_confusion_matrix.png)
 
 ## Error analysis
 What the best model gets wrong and why.

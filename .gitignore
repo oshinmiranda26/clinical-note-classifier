@@ -6,3 +6,5 @@ data/*
 results/*.pkl
 .ipynb_checkpoints/
 .env
+.DS_Store
+.DS_Store

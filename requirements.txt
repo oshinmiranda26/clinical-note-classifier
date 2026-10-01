@@ -2,9 +2,9 @@ pandas
 scikit-learn
 matplotlib
 pytest
+torch
+transformers
 # added later:
-# torch
-# transformers
 # peft
 # datasets
 # fastapi

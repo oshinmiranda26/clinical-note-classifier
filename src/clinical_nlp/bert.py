@@ -182,7 +182,7 @@ def main():
     )
     ax.set_title(f"{args.model.split('/')[-1]}: confusion matrix")
     fig.tight_layout()
-    fig.savefig(RESULTS / "bert_confusion_matrix.png", dpi=150)
+    fig.savefig(RESULTS / f"{args.tag}_confusion_matrix.png", dpi=150)
     print("Saved results to results/")
 
 

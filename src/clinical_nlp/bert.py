@@ -5,6 +5,7 @@ so it already "speaks" clinical language before we fine-tune it on our task.
 
 Run:  python -m clinical_nlp.bert
 Faster/smaller option:  python -m clinical_nlp.bert --model distilbert-base-uncased
+Experiment example:     python -m clinical_nlp.bert --class-weights --tag bert_cw
 """
 import argparse
 import json
@@ -87,6 +88,10 @@ def main():
     parser.add_argument("--batch-size", type=int, default=8)
     parser.add_argument("--lr", type=float, default=2e-5)
     parser.add_argument("--seed", type=int, default=42)
+    parser.add_argument("--class-weights", action="store_true",
+                        help="weight the loss so rare specialties count more")
+    parser.add_argument("--tag", default="bert",
+                        help="name used for the saved results files")
     args = parser.parse_args()
 
     set_seed(args.seed)
@@ -118,13 +123,29 @@ def main():
         optimizer, num_warmup_steps=int(0.1 * total_steps), num_training_steps=total_steps
     )
 
+    # Optional class weights: rare classes get larger weights (n_samples / (n_classes * count)),
+    # the same idea as class_weight="balanced" in the logistic regression baseline.
+    loss_fn = None
+    if args.class_weights:
+        counts = train_df["label"].map(label2id).value_counts().sort_index().values
+        weights = len(train_df) / (len(labels) * counts)
+        loss_fn = torch.nn.CrossEntropyLoss(
+            weight=torch.tensor(weights, dtype=torch.float32, device=device)
+        )
+        print("Class weights:", {id2label[i]: round(float(w), 2) for i, w in enumerate(weights)})
+
     start = time.time()
     for epoch in range(1, args.epochs + 1):
         model.train()
         running_loss = 0.0
         for step, batch in enumerate(train_loader, start=1):
             batch = {k: v.to(device) for k, v in batch.items()}
-            loss = model(**batch).loss          # how wrong the predictions were
+            if loss_fn is None:
+                loss = model(**batch).loss      # how wrong the predictions were
+            else:
+                labels_batch = batch.pop("labels")
+                logits = model(**batch).logits
+                loss = loss_fn(logits, labels_batch)
             loss.backward()                     # compute how to adjust each weight
             torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)  # prevent huge updates
             optimizer.step()                    # adjust the weights
@@ -142,6 +163,7 @@ def main():
         "model": args.model,
         "max_len": args.max_len,
         "epochs": args.epochs,
+        "class_weights": args.class_weights,
         "n_train": len(train_df),
         "n_test": len(test_df),
         "accuracy": round(accuracy_score(test_df["label"], preds), 4),
@@ -153,7 +175,7 @@ def main():
     print(classification_report(test_df["label"], preds))
 
     RESULTS.mkdir(exist_ok=True)
-    (RESULTS / "bert_metrics.json").write_text(json.dumps(metrics, indent=2))
+    (RESULTS / f"{args.tag}_metrics.json").write_text(json.dumps(metrics, indent=2))
     fig, ax = plt.subplots(figsize=(9, 8))
     ConfusionMatrixDisplay.from_predictions(
         test_df["label"], preds, ax=ax, xticks_rotation=45, colorbar=False

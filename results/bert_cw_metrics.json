@@ -1,0 +1,12 @@
+{
+  "model": "emilyalsentzer/Bio_ClinicalBERT",
+  "max_len": 256,
+  "epochs": 3,
+  "class_weights": true,
+  "n_train": 1518,
+  "n_test": 380,
+  "accuracy": 0.8421,
+  "macro_f1": 0.7333,
+  "train_minutes": 9.2,
+  "device": "mps"
+}

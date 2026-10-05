@@ -1,5 +1,9 @@
 # Clinical Note Classification: Classical ML vs. BERT vs. LoRA-Tuned LLM
 
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://clinical-note-classifier.streamlit.app)
+
+**[Try the live demo](https://clinical-note-classifier.streamlit.app)**: paste a clinical note and see the predicted specialty plus the words that drove the prediction.
+
 > **Work in progress.** On this keyword-driven task, a simple TF-IDF + logistic regression baseline (0.820 macro-F1) still edges out a fine-tuned Bio_ClinicalBERT (0.794) that takes ~20x longer to train. Fixing an unfair comparison (class weighting) and truncation closed most of BERT's gap. LoRA-tuned LLM comparison is next.
 
 ## Problem

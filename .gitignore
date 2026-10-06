@@ -13,3 +13,4 @@ results/*.pkl
 # Streamlit agent skills (local symlinks)
 .agents/
 .claude/
+*.egg-info/

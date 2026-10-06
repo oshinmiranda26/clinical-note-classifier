@@ -4,8 +4,4 @@ matplotlib
 pytest
 torch
 transformers
-# added later:
-# peft
-# datasets
-# fastapi
-# uvicorn
+peft

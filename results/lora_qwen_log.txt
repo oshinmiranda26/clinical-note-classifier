@@ -1,0 +1,103 @@
+Device: mps | Model: Qwen/Qwen2.5-0.5B
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]Loading weights:   0%|          | 1/290 [00:00<03:22,  1.43it/s]Loading weights: 100%|██████████| 290/290 [00:00<00:00, 412.70it/s]
+[transformers] [1mQwen2ForSequenceClassification LOAD REPORT[0m from: Qwen/Qwen2.5-0.5B
+Key          | Status  | 
+-------------+---------+-
+score.weight | MISSING | 
+
+Notes:
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+trainable params: 2,169,856 || all params: 496,209,792 || trainable%: 0.4373
+epoch 1 step 20/380 avg loss 6.184 | 1.0 min
+epoch 1 step 40/380 avg loss 7.578 | 2.0 min
+epoch 1 step 60/380 avg loss 6.710 | 2.9 min
+epoch 1 step 80/380 avg loss 6.277 | 3.9 min
+epoch 1 step 100/380 avg loss 5.871 | 4.8 min
+epoch 1 step 120/380 avg loss 5.460 | 5.7 min
+epoch 1 step 140/380 avg loss 5.138 | 6.7 min
+epoch 1 step 160/380 avg loss 4.813 | 7.8 min
+epoch 1 step 180/380 avg loss 4.526 | 8.9 min
+epoch 1 step 200/380 avg loss 4.274 | 10.0 min
+epoch 1 step 220/380 avg loss 4.074 | 11.0 min
+epoch 1 step 240/380 avg loss 3.897 | 11.9 min
+epoch 1 step 260/380 avg loss 3.732 | 12.9 min
+epoch 1 step 280/380 avg loss 3.587 | 13.9 min
+epoch 1 step 300/380 avg loss 3.428 | 14.9 min
+epoch 1 step 320/380 avg loss 3.272 | 16.0 min
+epoch 1 step 340/380 avg loss 3.144 | 17.0 min
+epoch 1 step 360/380 avg loss 3.019 | 18.0 min
+epoch 1 step 380/380 avg loss 2.926 | 19.1 min
+epoch 1 done | avg loss 2.926
+epoch 2 step 20/380 avg loss 0.708 | 20.2 min
+epoch 2 step 40/380 avg loss 0.610 | 21.3 min
+epoch 2 step 60/380 avg loss 0.627 | 22.4 min
+epoch 2 step 80/380 avg loss 0.583 | 23.6 min
+epoch 2 step 100/380 avg loss 0.604 | 24.7 min
+epoch 2 step 120/380 avg loss 0.677 | 25.8 min
+epoch 2 step 140/380 avg loss 0.664 | 26.9 min
+epoch 2 step 160/380 avg loss 0.634 | 28.3 min
+epoch 2 step 180/380 avg loss 0.622 | 29.7 min
+epoch 2 step 200/380 avg loss 0.611 | 31.1 min
+epoch 2 step 220/380 avg loss 0.605 | 32.5 min
+epoch 2 step 240/380 avg loss 0.636 | 33.8 min
+epoch 2 step 260/380 avg loss 0.629 | 35.2 min
+epoch 2 step 280/380 avg loss 0.622 | 36.7 min
+epoch 2 step 300/380 avg loss 0.636 | 38.0 min
+epoch 2 step 320/380 avg loss 0.644 | 39.2 min
+epoch 2 step 340/380 avg loss 0.645 | 40.4 min
+epoch 2 step 360/380 avg loss 0.627 | 41.4 min
+epoch 2 step 380/380 avg loss 0.606 | 42.5 min
+epoch 2 done | avg loss 0.606
+epoch 3 step 20/380 avg loss 0.240 | 44.0 min
+epoch 3 step 40/380 avg loss 0.440 | 44.9 min
+epoch 3 step 60/380 avg loss 0.367 | 45.9 min
+epoch 3 step 80/380 avg loss 0.347 | 46.9 min
+epoch 3 step 100/380 avg loss 0.358 | 47.9 min
+epoch 3 step 120/380 avg loss 0.375 | 48.8 min
+epoch 3 step 140/380 avg loss 0.329 | 49.8 min
+epoch 3 step 160/380 avg loss 0.296 | 50.8 min
+epoch 3 step 180/380 avg loss 0.294 | 51.7 min
+epoch 3 step 200/380 avg loss 0.285 | 52.7 min
+epoch 3 step 220/380 avg loss 0.272 | 53.7 min
+epoch 3 step 240/380 avg loss 0.264 | 54.6 min
+epoch 3 step 260/380 avg loss 0.254 | 55.6 min
+epoch 3 step 280/380 avg loss 0.240 | 56.6 min
+epoch 3 step 300/380 avg loss 0.252 | 57.6 min
+epoch 3 step 320/380 avg loss 0.248 | 58.6 min
+epoch 3 step 340/380 avg loss 0.247 | 59.6 min
+epoch 3 step 360/380 avg loss 0.238 | 60.6 min
+epoch 3 step 380/380 avg loss 0.226 | 61.5 min
+epoch 3 done | avg loss 0.226
+{
+  "model": "Qwen/Qwen2.5-0.5B",
+  "method": "LoRA",
+  "rank": 16,
+  "max_len": 512,
+  "epochs": 3,
+  "class_weights": true,
+  "n_train": 1518,
+  "n_test": 380,
+  "trainable_params": 2169856,
+  "total_params": 496209792,
+  "trainable_pct": 0.437,
+  "accuracy": 0.8789,
+  "macro_f1": 0.7832,
+  "train_minutes": 61.5,
+  "device": "mps"
+}
+                            precision    recall  f1-score   support
+
+Cardiovascular / Pulmonary       0.65      0.81      0.72        21
+          General Medicine       0.79      0.65      0.71        46
+                 Neurology       0.39      0.47      0.42        15
+                Orthopedic       0.86      1.00      0.92        12
+   Psychiatry / Psychology       0.73      0.73      0.73        11
+                 Radiology       0.89      0.84      0.86        49
+                   Surgery       0.96      0.98      0.97       195
+                   Urology       0.96      0.87      0.92        31
+
+                  accuracy                           0.88       380
+                 macro avg       0.78      0.79      0.78       380
+              weighted avg       0.88      0.88      0.88       380
+
+Saved results to results/

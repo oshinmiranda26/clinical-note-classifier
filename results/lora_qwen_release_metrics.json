@@ -1,0 +1,17 @@
+{
+  "model": "Qwen/Qwen2.5-0.5B",
+  "method": "LoRA",
+  "rank": 16,
+  "max_len": 512,
+  "epochs": 3,
+  "class_weights": true,
+  "n_train": 1518,
+  "n_test": 380,
+  "trainable_params": 2169856,
+  "total_params": 496209792,
+  "trainable_pct": 0.437,
+  "accuracy": 0.8789,
+  "macro_f1": 0.7832,
+  "train_minutes": 55.9,
+  "device": "mps"
+}

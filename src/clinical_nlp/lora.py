@@ -141,6 +141,14 @@ def main():
     fig.savefig(RESULTS / f"{args.tag}_confusion_matrix.png", dpi=150)
     print("Saved results to results/")
 
+    # Save the trained LoRA adapter (only the small low-rank matrices and classification head) for sharing
+    out = RESULTS.parent / "models" / args.tag
+    model.save_pretrained(out)
+    if "tokenizer" in locals():
+        locals()["tokenizer"].save_pretrained(out)
+    (out / "label_mapping.json").write_text(json.dumps({int(k): v for k, v in id2label.items()}, indent=2))
+    print(f"Saved adapter to {out}/")
+
 
 if __name__ == "__main__":
     main()

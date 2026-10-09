@@ -1,5 +1,7 @@
 # Clinical Note Classification: Classical ML vs. BERT vs. LoRA-Tuned LLM
 
+**Fine-tuned model:** the LoRA adapter is published on [Hugging Face](https://huggingface.co/oshinmiranda26/qwen2.5-0.5b-lora-clinical-note-specialty) with a model card. See also [MODEL_CARD.md](MODEL_CARD.md).
+
 [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://clinical-note-classifier.streamlit.app)
 
 **[Try the live demo](https://clinical-note-classifier.streamlit.app)**: paste a clinical note and see the predicted specialty plus the words that drove the prediction.
